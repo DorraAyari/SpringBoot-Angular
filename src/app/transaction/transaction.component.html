@@ -1,0 +1,28 @@
+<div class ="container">
+    <div class = "card">
+        <h3 class="text-center"> transaction List</h3>
+        <div class = "card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>Id</th>
+                    <th>heure </th>
+                    <th>day </th>
+                    <th> description </th>
+                    <th> montant </th>
+
+               
+
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let transacss of trans">
+                        <td> {{ transacss.idtrans}}</td>
+                        <td> {{ transacss.heure}}</td>
+                        <td> {{ transacss.day}}</td>
+                        <td> {{ transacss.description}}</td>
+                        <td> {{ transacss.montant}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

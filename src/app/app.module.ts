@@ -26,6 +26,7 @@ import { EdditingTransfersItemsComponent } from './adding-transfers-items/edditi
 import { HttpClientModule } from '@angular/common/http';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { CategoryComponent } from './category/category.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CategoryComponent } from './category/category.component';
     AddingTransfersItemsComponent,
     EdditingTransfersItemsComponent,
     UtilisateurComponent,
-    CategoryComponent
+    CategoryComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
