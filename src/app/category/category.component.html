@@ -1,0 +1,20 @@
+<div class ="container">
+    <div class = "card">
+        <h3 class="text-center"> Category List</h3>
+        <div class = "card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>Id</th>
+                    <th> categoryname </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let category of cat">
+                        <td> {{ category.idcat}}</td>
+                        <td> {{ category.nomCat}}</td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
