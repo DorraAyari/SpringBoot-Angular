@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <app-navbar #sideNav opened mode="side"></app-navbar>
+  <app-sidebar (featureSelected)="onNavigate($event)"></app-sidebar>
+ <div class="content-wrapper"> <!--
+  <app-depences *ngIf="loadedFeature === 'depence'"></app-depences>
+  <app-adding-depences-items *ngIf="loadedFeature !== 'depence'"></app-adding-depences-items>
+  <app-revenus *ngIf="loadedRevenu === 'revenu'"></app-revenus>
+  <app-adding-revenus-items *ngIf="creatingrevenu === 'creating-revenuitem'"></app-adding-revenus-items>
+  <app-transfers *ngIf="loadedRevenu === 'revenu'"></app-transfers>
+  <app-adding-transfers-items *ngIf="creatingrevenu === 'creating-revenuitem'"></app-adding-transfers-items>-->
+    <router-outlet></router-outlet> <!-- This will be changing based on routing  -->
+    <app-utilisateur></app-utilisateur>
+  </div>
+</div>
+
+
+
+
+
+
+
+
