@@ -1,28 +1,96 @@
-<div class ="container">
-    <div class = "card">
-        <h3 class="text-center"> transaction List</h3>
-        <div class = "card-body">
-            <table class="table table-striped">
-                <thead>
-                    <th>Id</th>
-                    <th>heure </th>
-                    <th>day </th>
-                    <th> description </th>
-                    <th> montant </th>
 
-               
-
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let transacss of trans">
-                        <td> {{ transacss.idtrans}}</td>
-                        <td> {{ transacss.heure}}</td>
-                        <td> {{ transacss.day}}</td>
-                        <td> {{ transacss.description}}</td>
-                        <td> {{ transacss.montant}}</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Timeline</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Timeline</li>
+            </ol>
+          </div>
         </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+<!-- Main content -->
+ <section class="content" >
+    <div class="container-fluid">
+
+      <!-- Timelime example  -->
+      <div class="row" >
+        <div class="col-md-12" >
+          <!-- The time line -->
+          <div  class="timeline" *ngFor="let transaction of transactions  | async ; let i=index">
+
+
+            <div class="time-label">
+            
+              <span class="bg-red" >{{transaction.day| date:'yyyy-MM-dd'}}</span>
+       
+             </div>
+             <!-- timeline time label -->
+        
+               <!-- /.timeline-label-->
+             <div  *ngFor="let trad of transactions | async" >
+   
+              <i *ngIf="'revenu' === trad.types && (transaction.day | date:'yyyy-MM-dd') === (trad.day | date:'yyyy-MM-dd')" class="far fa-arrow-alt-circle-up  bg-blue" ></i>
+        
+              <i *ngIf="'transfert' === trad.types && (transaction.day | date:'yyyy-MM-dd') ===(trad.day | date:'yyyy-MM-dd')" class="far fa-arrow-alt-circle-up  bg-yellow" ></i>
+          
+
+              <i  *ngIf="'depence' === trad.types && (transaction.day | date:'yyyy-MM-dd') === (trad.day | date:'yyyy-MM-dd')" class="far fa-arrow-alt-circle-up  bg-red" ></i>
+       
+  
+              <div class="timeline-item" *ngIf="(transaction.day | date:'yyyy-MM-dd') ===  (trad.day| date:'yyyy-MM-dd')">
+             
+                <span class="time"><i class="fas fa-clock"></i>{{transaction.heure| date:'HH:mm:ss'}}</span>
+                <h3 class="timeline-header"><a href="#">Support Team</a> added this</h3>
+                <span class="timeline-body">
+                  {{trad.description}}
+                </span>
+        
+                <span class="timeline-body">
+                  {{trad.description}}
+                </span>
+                <span class="timeline-body">
+                  {{trad.montant}} DT
+                </span>
+                <span class="timeline-body">
+                  {{trad.types}} DT
+                </span>
+                <span class="timeline-body">
+             
+                </span>
+                <div class="timeline-footer">
+                  <a class="btn btn-primary btn-sm" (click)="TransactionDetails(trad._id)" >Read more</a>
+                  <a class="btn btn-danger btn-sm"  (click)="deleteTransaction(trad._id)" >Delete</a>
+                </div>
+              </div>
+            </div>
+  
+            <!-- END timeline item -->
+            <!-- timeline time label -->
+
+
+            <div>
+              <i class="fas fa-clock bg-gray"></i>
+            </div>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
     </div>
-</div>
+    <!-- /.timeline -->
+
+  </section>
+
+
+
+
+
+
+
+

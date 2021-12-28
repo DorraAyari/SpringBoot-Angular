@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { transaction } from '../transaction';
-import { transactionService } from '../transaction.service';
-
+import { Transaction } from '../transaction';
+import { TransactionService } from '../transaction.service';
+import { Router } from '@angular/router';
+import { Observable } from "rxjs";
 @Component({
   selector: 'app-transaction',
   templateUrl: './transaction.component.html',
@@ -9,14 +10,30 @@ import { transactionService } from '../transaction.service';
 })
 export class TransactionComponent implements OnInit {
 
-  trans: transaction[];
-  constructor(private tranService: transactionService) { }
+  transactions: Observable<Transaction[]>;
 
-  ngOnInit(): void {
-    this.tranService.getTransaction().subscribe((data: transaction[]) => {
-      console.log(data);
-      this.trans = data;
-    });
+  constructor(private transationsService: TransactionService,
+    private router: Router) {}
+
+  ngOnInit() {
+    this.reloadData();
   }
+  reloadData() {
+    this.transactions = this.transationsService.getTransactionsList();
+  }
+  deleteTransaction(idtrans: string) {
+    this.transationsService.deleteTransaction(idtrans)
+      .subscribe(
+        ( data) => {
+          console.log(data);
+          this.reloadData();
+        },
+        (error) => console.log(error));
+  }
+
+  TransactionDetails(idtrans : string){
+    this.router.navigate(['transactiondetails/', idtrans]);
+  }
+ 
 
 }

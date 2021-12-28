@@ -1,9 +1,9 @@
-import { Time } from "@angular/common";
-
-export class transaction {
-    idtrans: number;
-    heure: Time;
+ export class Transaction {
+    _id: string;
     day: Date;
     description: string;
     montant: number;
+    heure: Date;
+    types:  string;
+    
 }

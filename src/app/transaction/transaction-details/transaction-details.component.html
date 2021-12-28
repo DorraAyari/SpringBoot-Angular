@@ -1,0 +1,33 @@
+<h2>transaction Details</h2> 
+
+<hr/>
+<div *ngIf="transaction">
+
+  <div>
+    <label><b>ID: </b></label> {{transaction._id}}
+  </div>
+
+  <div>
+    <label><b>transaction montant: </b></label> {{transaction.montant}}
+  </div>
+
+  <div>
+    <label><b>transaction day: </b></label> {{transaction.day}}
+  </div> 
+
+  <div>
+    <label><b>types: </b></label> {{transaction.types}}
+  </div>
+
+  <div>
+    <label><b>transaction description: </b></label> {{transaction.description}}
+  </div> 
+
+</div>
+
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">  Back to Category List</button>
+<button  (click)="update()" class="btn btn-info" style="margin-left: 10px">  Update</button>
+<br>
